@@ -1,0 +1,20 @@
+# Deliberately UNPINNED for the first install.
+# After `pip install -r requirements.txt` succeeds, run:
+#     pip freeze > requirements.lock.txt
+# and commit the lock file. We pin versions we have actually installed,
+# never versions we guessed.
+
+torch
+torchvision
+transformers
+datasets
+huggingface_hub
+pillow
+numpy
+pandas
+tqdm
+pytest
+ocrmac
+pillow-heif
+fastapi
+uvicorn

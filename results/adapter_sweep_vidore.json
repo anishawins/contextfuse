@@ -1,0 +1,457 @@
+{
+  "baseline_ndcg@10": 0.0774012144749869,
+  "grid": {
+    "lr": [
+      1e-05,
+      0.0001,
+      0.001
+    ],
+    "bottleneck": [
+      16,
+      64,
+      256
+    ],
+    "train_heads": [
+      "both",
+      "text"
+    ],
+    "dropout": [
+      0.1,
+      0.4
+    ]
+  },
+  "runs": [
+    {
+      "cfg": {
+        "lr": 0.001,
+        "bottleneck": 256,
+        "train_heads": "both",
+        "dropout": 0.4
+      },
+      "best_val": 0.11712205307522461,
+      "before": 0.07454642162083536,
+      "after": 0.06981153617119865,
+      "epochs_run": 40
+    },
+    {
+      "cfg": {
+        "lr": 0.001,
+        "bottleneck": 256,
+        "train_heads": "text",
+        "dropout": 0.1
+      },
+      "best_val": 0.10699854984035681,
+      "before": 0.07454642162083536,
+      "after": 0.0832625638339229,
+      "epochs_run": 32
+    },
+    {
+      "cfg": {
+        "lr": 0.001,
+        "bottleneck": 256,
+        "train_heads": "both",
+        "dropout": 0.1
+      },
+      "best_val": 0.10670428824228513,
+      "before": 0.07454642162083536,
+      "after": 0.06391330254551394,
+      "epochs_run": 40
+    },
+    {
+      "cfg": {
+        "lr": 0.0001,
+        "bottleneck": 256,
+        "train_heads": "both",
+        "dropout": 0.1
+      },
+      "best_val": 0.0950326381167682,
+      "before": 0.07454642162083536,
+      "after": 0.08901593626555508,
+      "epochs_run": 40
+    },
+    {
+      "cfg": {
+        "lr": 0.0001,
+        "bottleneck": 256,
+        "train_heads": "both",
+        "dropout": 0.4
+      },
+      "best_val": 0.0837456664740631,
+      "before": 0.07454642162083536,
+      "after": 0.08907016573577975,
+      "epochs_run": 40
+    },
+    {
+      "cfg": {
+        "lr": 0.001,
+        "bottleneck": 256,
+        "train_heads": "text",
+        "dropout": 0.4
+      },
+      "best_val": 0.08306948602098167,
+      "before": 0.07454642162083536,
+      "after": 0.0731995683138681,
+      "epochs_run": 36
+    },
+    {
+      "cfg": {
+        "lr": 0.001,
+        "bottleneck": 64,
+        "train_heads": "both",
+        "dropout": 0.1
+      },
+      "best_val": 0.0779363795024669,
+      "before": 0.07726523991333496,
+      "after": 0.07031969962027178,
+      "epochs_run": 31
+    },
+    {
+      "cfg": {
+        "lr": 0.001,
+        "bottleneck": 64,
+        "train_heads": "text",
+        "dropout": 0.1
+      },
+      "best_val": 0.059582879890096765,
+      "before": 0.07726523991333496,
+      "after": 0.07147146902436904,
+      "epochs_run": 40
+    },
+    {
+      "cfg": {
+        "lr": 0.0001,
+        "bottleneck": 256,
+        "train_heads": "text",
+        "dropout": 0.1
+      },
+      "best_val": 0.055052598551054946,
+      "before": 0.07454642162083536,
+      "after": 0.05854061712102321,
+      "epochs_run": 40
+    },
+    {
+      "cfg": {
+        "lr": 0.001,
+        "bottleneck": 64,
+        "train_heads": "text",
+        "dropout": 0.4
+      },
+      "best_val": 0.045117747226381046,
+      "before": 0.07726523991333496,
+      "after": 0.060786754475958084,
+      "epochs_run": 40
+    },
+    {
+      "cfg": {
+        "lr": 1e-05,
+        "bottleneck": 64,
+        "train_heads": "text",
+        "dropout": 0.4
+      },
+      "best_val": 0.04332107153610409,
+      "before": 0.07726523991333496,
+      "after": 0.06012565975484597,
+      "epochs_run": 18
+    },
+    {
+      "cfg": {
+        "lr": 0.001,
+        "bottleneck": 64,
+        "train_heads": "both",
+        "dropout": 0.4
+      },
+      "best_val": 0.04313187026858541,
+      "before": 0.07726523991333496,
+      "after": 0.05009724376515159,
+      "epochs_run": 12
+    },
+    {
+      "cfg": {
+        "lr": 1e-05,
+        "bottleneck": 64,
+        "train_heads": "text",
+        "dropout": 0.1
+      },
+      "best_val": 0.0412613962660359,
+      "before": 0.07726523991333496,
+      "after": 0.06461453280677343,
+      "epochs_run": 17
+    },
+    {
+      "cfg": {
+        "lr": 1e-05,
+        "bottleneck": 16,
+        "train_heads": "text",
+        "dropout": 0.1
+      },
+      "best_val": 0.03950414066055014,
+      "before": 0.0774012144749869,
+      "after": 0.06692915888368443,
+      "epochs_run": 28
+    },
+    {
+      "cfg": {
+        "lr": 1e-05,
+        "bottleneck": 16,
+        "train_heads": "text",
+        "dropout": 0.4
+      },
+      "best_val": 0.03862874893328028,
+      "before": 0.0774012144749869,
+      "after": 0.08086747623066941,
+      "epochs_run": 13
+    },
+    {
+      "cfg": {
+        "lr": 1e-05,
+        "bottleneck": 64,
+        "train_heads": "both",
+        "dropout": 0.1
+      },
+      "best_val": 0.038291623555199515,
+      "before": 0.07726523991333496,
+      "after": 0.08312135503499567,
+      "epochs_run": 13
+    },
+    {
+      "cfg": {
+        "lr": 1e-05,
+        "bottleneck": 256,
+        "train_heads": "text",
+        "dropout": 0.1
+      },
+      "best_val": 0.038231803150522686,
+      "before": 0.07454642162083536,
+      "after": 0.06684297292822802,
+      "epochs_run": 12
+    },
+    {
+      "cfg": {
+        "lr": 0.0001,
+        "bottleneck": 256,
+        "train_heads": "text",
+        "dropout": 0.4
+      },
+      "best_val": 0.038064800770738795,
+      "before": 0.07454642162083536,
+      "after": 0.055247923633111304,
+      "epochs_run": 40
+    },
+    {
+      "cfg": {
+        "lr": 1e-05,
+        "bottleneck": 16,
+        "train_heads": "both",
+        "dropout": 0.4
+      },
+      "best_val": 0.03800562500135866,
+      "before": 0.0774012144749869,
+      "after": 0.07858315689090307,
+      "epochs_run": 11
+    },
+    {
+      "cfg": {
+        "lr": 1e-05,
+        "bottleneck": 16,
+        "train_heads": "both",
+        "dropout": 0.1
+      },
+      "best_val": 0.03792144732846763,
+      "before": 0.0774012144749869,
+      "after": 0.07862171954015156,
+      "epochs_run": 11
+    },
+    {
+      "cfg": {
+        "lr": 1e-05,
+        "bottleneck": 256,
+        "train_heads": "text",
+        "dropout": 0.4
+      },
+      "best_val": 0.03785586857949863,
+      "before": 0.07454642162083536,
+      "after": 0.06458378060887951,
+      "epochs_run": 12
+    },
+    {
+      "cfg": {
+        "lr": 1e-05,
+        "bottleneck": 64,
+        "train_heads": "both",
+        "dropout": 0.4
+      },
+      "best_val": 0.0377391264257914,
+      "before": 0.07726523991333496,
+      "after": 0.08755706332312799,
+      "epochs_run": 11
+    },
+    {
+      "cfg": {
+        "lr": 0.001,
+        "bottleneck": 16,
+        "train_heads": "both",
+        "dropout": 0.4
+      },
+      "best_val": 0.03718692025330526,
+      "before": 0.0774012144749869,
+      "after": 0.026156803737043016,
+      "epochs_run": 19
+    },
+    {
+      "cfg": {
+        "lr": 0.0001,
+        "bottleneck": 16,
+        "train_heads": "text",
+        "dropout": 0.4
+      },
+      "best_val": 0.03687817565848279,
+      "before": 0.0774012144749869,
+      "after": 0.08454094371341521,
+      "epochs_run": 11
+    },
+    {
+      "cfg": {
+        "lr": 1e-05,
+        "bottleneck": 256,
+        "train_heads": "both",
+        "dropout": 0.1
+      },
+      "best_val": 0.0366032475648449,
+      "before": 0.07454642162083536,
+      "after": 0.07867005386719154,
+      "epochs_run": 11
+    },
+    {
+      "cfg": {
+        "lr": 0.0001,
+        "bottleneck": 16,
+        "train_heads": "text",
+        "dropout": 0.1
+      },
+      "best_val": 0.03640424836407618,
+      "before": 0.0774012144749869,
+      "after": 0.08431006995396913,
+      "epochs_run": 11
+    },
+    {
+      "cfg": {
+        "lr": 1e-05,
+        "bottleneck": 256,
+        "train_heads": "both",
+        "dropout": 0.4
+      },
+      "best_val": 0.03558921604366504,
+      "before": 0.07454642162083536,
+      "after": 0.07952366368216462,
+      "epochs_run": 11
+    },
+    {
+      "cfg": {
+        "lr": 0.0001,
+        "bottleneck": 64,
+        "train_heads": "text",
+        "dropout": 0.4
+      },
+      "best_val": 0.03476081677359993,
+      "before": 0.07726523991333496,
+      "after": 0.0515909430009211,
+      "epochs_run": 11
+    },
+    {
+      "cfg": {
+        "lr": 0.0001,
+        "bottleneck": 64,
+        "train_heads": "text",
+        "dropout": 0.1
+      },
+      "best_val": 0.03472146288426552,
+      "before": 0.07726523991333496,
+      "after": 0.05151332885077165,
+      "epochs_run": 11
+    },
+    {
+      "cfg": {
+        "lr": 0.0001,
+        "bottleneck": 64,
+        "train_heads": "both",
+        "dropout": 0.4
+      },
+      "best_val": 0.033695604172118775,
+      "before": 0.07726523991333496,
+      "after": 0.03781049400805417,
+      "epochs_run": 12
+    },
+    {
+      "cfg": {
+        "lr": 0.0001,
+        "bottleneck": 64,
+        "train_heads": "both",
+        "dropout": 0.1
+      },
+      "best_val": 0.033110329803747035,
+      "before": 0.07726523991333496,
+      "after": 0.03796353378471609,
+      "epochs_run": 12
+    },
+    {
+      "cfg": {
+        "lr": 0.001,
+        "bottleneck": 16,
+        "train_heads": "both",
+        "dropout": 0.1
+      },
+      "best_val": 0.0327103908747784,
+      "before": 0.0774012144749869,
+      "after": 0.022427762284036416,
+      "epochs_run": 25
+    },
+    {
+      "cfg": {
+        "lr": 0.0001,
+        "bottleneck": 16,
+        "train_heads": "both",
+        "dropout": 0.4
+      },
+      "best_val": 0.031171494525772687,
+      "before": 0.0774012144749869,
+      "after": 0.08284206516366044,
+      "epochs_run": 11
+    },
+    {
+      "cfg": {
+        "lr": 0.0001,
+        "bottleneck": 16,
+        "train_heads": "both",
+        "dropout": 0.1
+      },
+      "best_val": 0.02935927552905187,
+      "before": 0.0774012144749869,
+      "after": 0.07822359429303208,
+      "epochs_run": 11
+    },
+    {
+      "cfg": {
+        "lr": 0.001,
+        "bottleneck": 16,
+        "train_heads": "text",
+        "dropout": 0.1
+      },
+      "best_val": 0.02072431748494668,
+      "before": 0.0774012144749869,
+      "after": 0.0191642147616162,
+      "epochs_run": 21
+    },
+    {
+      "cfg": {
+        "lr": 0.001,
+        "bottleneck": 16,
+        "train_heads": "text",
+        "dropout": 0.4
+      },
+      "best_val": 0.016529634076321045,
+      "before": 0.0774012144749869,
+      "after": 0.019365763716347302,
+      "epochs_run": 24
+    }
+  ]
+}

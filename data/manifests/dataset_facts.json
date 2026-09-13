@@ -1,0 +1,33 @@
+{
+  "hf_datasets_cache_mb": 512.5,
+  "iiit5k_sha256": "7872c9efbec457eb23f3368855e7738f72ce10927f52a382deb4966ca0ffa38e",
+  "iiit5k_size_mb": 101.0,
+  "iiit5k_source_url": "https://cvit.iiit.ac.in/images/Projects/SceneTextUnderstanding/IIIT5K-Word_V3.0.tar.gz",
+  "iiit5k_test_images": 3000,
+  "iiit5k_train_images": 2000,
+  "vidore_configs": [
+    "corpus",
+    "documents_metadata",
+    "qrels",
+    "queries"
+  ],
+  "vidore_qrels_distribution": {
+    "1": 5262,
+    "2": 1032
+  },
+  "vidore_qrels_verdict": "GRADED  -> nDCG is meaningful",
+  "vidore_shapes": {
+    "corpus": {
+      "test": 1360
+    },
+    "documents_metadata": {
+      "test": 2
+    },
+    "qrels": {
+      "test": 6294
+    },
+    "queries": {
+      "test": 1290
+    }
+  }
+}

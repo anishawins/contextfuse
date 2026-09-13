@@ -1,0 +1,33 @@
+# ---- NEVER commit data. Not raw, not derived, not personal. ----
+data/raw/
+data/personal/
+data/*.tar.gz
+data/*.zip
+*.pt
+*.pth
+*.npy
+*.npz
+data/embeddings/
+data/flickr30k/
+data/personal/
+*.faiss
+*.index
+*.db
+*.sqlite3
+
+# environment / secrets
+.venv/
+.env
+*.secret
+
+# python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# outputs that are regenerable
+results/**/*.png
+mlruns/
+
+# local run logs
+run.log

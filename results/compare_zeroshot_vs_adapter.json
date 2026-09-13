@@ -1,0 +1,110 @@
+{
+  "easy_1k": {
+    "recall@1": {
+      "before": 0.738,
+      "after": 0.7362,
+      "mean_diff": -0.0018,
+      "ci_lo": -0.0128,
+      "ci_hi": 0.0092,
+      "p_value": 0.7632,
+      "n": 5000,
+      "wins": 400,
+      "losses": 409,
+      "ties": 4191,
+      "significant": false
+    },
+    "recall@5": {
+      "before": 0.913,
+      "after": 0.9218,
+      "mean_diff": 0.0088,
+      "ci_lo": 0.0018,
+      "ci_hi": 0.016,
+      "p_value": 0.0146,
+      "n": 5000,
+      "wins": 186,
+      "losses": 142,
+      "ties": 4672,
+      "significant": true
+    },
+    "recall@10": {
+      "before": 0.95,
+      "after": 0.9562,
+      "mean_diff": 0.0062,
+      "ci_lo": 0.0006,
+      "ci_hi": 0.0118,
+      "p_value": 0.0338,
+      "n": 5000,
+      "wins": 118,
+      "losses": 87,
+      "ties": 4795,
+      "significant": true
+    },
+    "mrr": {
+      "before": 0.8164492731479669,
+      "after": 0.8179008378639834,
+      "mean_diff": 0.0014515647160165412,
+      "ci_lo": -0.005666114797936355,
+      "ci_hi": 0.008598131926406852,
+      "p_value": 0.701,
+      "n": 5000,
+      "wins": 802,
+      "losses": 720,
+      "ties": 3478,
+      "significant": false
+    }
+  },
+  "hard_31k": {
+    "recall@1": {
+      "before": 0.3868,
+      "after": 0.335,
+      "mean_diff": -0.0518,
+      "ci_lo": -0.0642,
+      "ci_hi": -0.0394,
+      "p_value": 0.0,
+      "n": 5000,
+      "wins": 372,
+      "losses": 631,
+      "ties": 3997,
+      "significant": true
+    },
+    "recall@5": {
+      "before": 0.6014,
+      "after": 0.5688,
+      "mean_diff": -0.0326,
+      "ci_lo": -0.0446,
+      "ci_hi": -0.0208,
+      "p_value": 0.0,
+      "n": 5000,
+      "wins": 378,
+      "losses": 541,
+      "ties": 4081,
+      "significant": true
+    },
+    "recall@10": {
+      "before": 0.6904,
+      "after": 0.6578,
+      "mean_diff": -0.0326,
+      "ci_lo": -0.044,
+      "ci_hi": -0.0214,
+      "p_value": 0.0,
+      "n": 5000,
+      "wins": 326,
+      "losses": 489,
+      "ties": 4185,
+      "significant": true
+    },
+    "mrr": {
+      "before": 0.4885487641528974,
+      "after": 0.4449277604654853,
+      "mean_diff": -0.043621003687412056,
+      "ci_lo": -0.052809534820792925,
+      "ci_hi": -0.034345566711774037,
+      "p_value": 0.0,
+      "n": 5000,
+      "wins": 1614,
+      "losses": 1899,
+      "ties": 1487,
+      "significant": true
+    }
+  }
+}

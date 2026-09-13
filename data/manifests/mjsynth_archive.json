@@ -1,0 +1,32 @@
+{
+  "path": "/Users/anishaantony/Downloads/mjsynth.tar.gz",
+  "size_bytes": 10678411583,
+  "sha256": "63f32b358477401942f84cb92881148087e923970d00f92fb9a9d2c8baa8afe3",
+  "first_members": [
+    "mnt/ramdisk/max/90kDICT32px",
+    "mnt/ramdisk/max/90kDICT32px/annotation_train.txt",
+    "mnt/ramdisk/max/90kDICT32px/annotation_val.txt",
+    "mnt/ramdisk/max/90kDICT32px/lexicon.txt",
+    "mnt/ramdisk/max/90kDICT32px/annotation_test.txt",
+    "mnt/ramdisk/max/90kDICT32px/annotation.txt",
+    "mnt/ramdisk/max/90kDICT32px/imlist.txt",
+    "mnt/ramdisk/max/90kDICT32px/4000",
+    "mnt/ramdisk/max/90kDICT32px/3999",
+    "mnt/ramdisk/max/90kDICT32px/3998",
+    "mnt/ramdisk/max/90kDICT32px/3997",
+    "mnt/ramdisk/max/90kDICT32px/3996",
+    "mnt/ramdisk/max/90kDICT32px/3995",
+    "mnt/ramdisk/max/90kDICT32px/3994",
+    "mnt/ramdisk/max/90kDICT32px/3993",
+    "mnt/ramdisk/max/90kDICT32px/3992",
+    "mnt/ramdisk/max/90kDICT32px/3991",
+    "mnt/ramdisk/max/90kDICT32px/3990",
+    "mnt/ramdisk/max/90kDICT32px/3989",
+    "mnt/ramdisk/max/90kDICT32px/3988",
+    "mnt/ramdisk/max/90kDICT32px/3987",
+    "mnt/ramdisk/max/90kDICT32px/3986",
+    "mnt/ramdisk/max/90kDICT32px/3985",
+    "mnt/ramdisk/max/90kDICT32px/3984",
+    "mnt/ramdisk/max/90kDICT32px/3983"
+  ]
+}

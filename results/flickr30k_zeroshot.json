@@ -1,0 +1,10 @@
+{
+  "recall@1": 0.738,
+  "recall@5": 0.913,
+  "recall@10": 0.95,
+  "tag": "siglip2_zeroshot",
+  "model": "google/siglip2-base-patch16-224",
+  "test_images": 1000,
+  "test_captions": 5000,
+  "median_rank": 1.0
+}
