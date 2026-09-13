@@ -6,6 +6,10 @@ Search your own images in natural language. ContextFuse combines a vision-langua
 transformer, OCR, and lexical retrieval, then reranks with a network trained on
 preference pairs. Everything runs on your machine; no image or embedding leaves it.
 
+Two networks are trained here from scratch: a **433-parameter RankNet reranker** that
+learns how to combine retrieval signals, and an **8.3M-parameter CNN→BiLSTM→CTC word
+recognizer** evaluated against a production OCR engine.
+
 ```
 $ python scripts/search.py "postgres connection refused"
 
@@ -47,6 +51,51 @@ on two datasets.** Degradation was invariant to a 30× learning-rate range and t
 1000× difference in training-set size, which localises the cause to the objective
 rather than to optimisation or data volume. Reported as a negative result; changing
 the encoder itself remains untested.
+
+### OCR: a CRNN trained from scratch
+
+CNN → BiLSTM → CTC, 8.3M parameters, trained on a 162,517-image MJSynth subset for
+six epochs (33 min on an Apple M-series GPU) and evaluated on the IIIT 5K-Word test
+split. **Training and test come from different datasets** — synthetic renderings
+versus real photographs — so no test image can appear in training, and the reported
+error includes that domain shift.
+
+| System | CER | WER | Word acc. | ms/image | Empty output |
+|---|---:|---:|---:|---:|---:|
+| CRNN · greedy | 0.1261 | 0.3140 | 68.6% | **0.8** | **0.1%** |
+| CRNN · beam (w=10) | 0.1257 | 0.3127 | 68.7% | 5.3 | 0.1% |
+| Apple Vision | **0.1032** | **0.1903** | **81.0%** | 19.2 | 9.8% |
+
+**Apple Vision is more accurate; the CRNN is 24× faster and never returns nothing.**
+Apple Vision is a full-page engine — it detects text, then reads it — and on
+pre-cropped low-resolution words its detection stage returns empty on 9.8% of images.
+The CRNN has no detector and assumes the crop is the word, which on this benchmark is
+true: it predicted something for every image and was correct on 224 where Apple Vision
+returned nothing. The systems are complementary rather than ordered.
+
+*Beam search over greedy changed 49 of 3,000 predictions and improved CER by 0.0004.
+Greedy finds the most likely alignment; beam search sums over alignments to find the
+most likely word. Those coincide when the model is confident, which it mostly is.*
+
+**Error analysis: the training lexicon, not the architecture.**
+
+| | letters only | with digits | gap |
+|---|---:|---:|---:|
+| CRNN | 72.3% | 32.0% | **−40.3** |
+| Apple Vision | 81.7% | 73.8% | −7.9 |
+
+The ten most frequent character substitutions are dominated by digits read as the
+letters they resemble: `0→o` (47), `4→a` (25), `5→s` (11), `1→i` (11), `8→b` (9).
+MJSynth is rendered from a ~90,000-word English lexicon and contains almost no
+numerals, so the network learned a strong alphabetic prior. Apple Vision, which does
+not share that training distribution, loses only 7.9 points on the identical images —
+the control that isolates the cause. **The remedy is training data, not a different
+network.**
+
+**Why the deployed system uses Apple Vision instead.** IIIT-5K supplies pre-cropped
+words; real screenshots do not. Something must first find *where* the text is, and the
+CRNN has no detection stage, so it cannot process a screenshot end to end at any
+accuracy. It is a component study and a research baseline, and is reported as one.
 
 ---
 
@@ -103,6 +152,14 @@ python scripts/run_hybrid.py        # config D — fusion, α tuned on dev
 python scripts/train_reranker.py    # config F — learned reranker + ablation
 ```
 
+Train and evaluate the OCR network:
+
+```bash
+python scripts/prepare_mjsynth.py --target 200000   # documented, hash-selected subset
+python scripts/train_crnn.py --epochs 6             # ~33 min on an M-series GPU
+python scripts/compare_ocr.py                       # CRNN vs Apple Vision on IIIT-5K
+```
+
 Every script writes a JSON record to `results/` including model version, device,
 seed, git SHA and platform.
 
@@ -150,6 +207,9 @@ src/contextfuse/
   adapter.py      residual bottleneck adapter (identity at initialisation)
   metrics.py      Recall@k, P@k, MRR, nDCG@k, bootstrap CIs
   stats.py        paired bootstrap significance testing
+  crnn.py         CNN -> BiLSTM word recognizer (Shi et al. 2015)
+  ctc.py          alphabet, greedy + prefix beam search, CER/WER
+  textdata.py     MJSynth / IIIT-5K loaders, CTC collation
   ocr.py          Apple Vision / Tesseract with explicit fallback
   ingest.py       scanning, perceptual dedup, privacy filtering
   api.py          FastAPI service
@@ -182,6 +242,14 @@ query before fusion.
 every relevant document 0.51 and every irrelevant one 0.49 is a poor classifier and a
 perfect ranker, so pointwise classification optimises the wrong objective. RankNet's
 loss depends only on score *differences*, formed within a query.
+
+**Why CTC rather than character segmentation.** A word image contains an unknown
+number of characters at unknown positions. Segmenting first is as hard as reading.
+CTC removes segmentation: the CNN's later pooling layers use stride (2,1) so the
+feature map keeps its width, that map is read as a sequence of 26 frames, and CTC
+sums the probability of every frame-to-character alignment that collapses to the
+target word. The blank symbol is what allows repeated letters — without it "hello"
+would collapse to "helo".
 
 **Why per-query adaptive fusion.** A fixed weight cannot serve both `"vellore"` — a
 rare term appearing verbatim in four images — and `"logical reasoning question"`,
