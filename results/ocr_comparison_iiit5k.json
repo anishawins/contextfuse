@@ -1,0 +1,98 @@
+{
+  "tag": "ocr_comparison_iiit5k",
+  "timestamp_utc": "2026-09-13T14:58:57+00:00",
+  "dataset": {
+    "name": "IIIT 5K-Word test",
+    "images": 3000,
+    "label_source": "testdata.mat (scipy)"
+  },
+  "device": "mps",
+  "crnn_mjsynth_val_cer": 0.05000602482226774,
+  "metrics": {
+    "CRNN (greedy)": {
+      "cer": 0.12607243434409587,
+      "wer": 0.314,
+      "word_accuracy": 0.6859999999999999,
+      "ms_per_image": 0.8392115693325952,
+      "total_seconds": 2.517634707997786
+    },
+    "CRNN (beam w=10)": {
+      "cer": 0.12574497347566965,
+      "wer": 0.31266666666666665,
+      "word_accuracy": 0.6873333333333334,
+      "ms_per_image": 5.3366401666668635,
+      "total_seconds": 16.00992050000059
+    },
+    "Apple Vision": {
+      "cer": 0.10321566572794551,
+      "wer": 0.19033333333333333,
+      "word_accuracy": 0.8096666666666666,
+      "ms_per_image": 19.185674083336686,
+      "total_seconds": 57.55702225001005
+    }
+  },
+  "failure_modes": {
+    "CRNN (greedy)": {
+      "exact": 2058,
+      "empty": 2,
+      "off_by_one": 544,
+      "too_short": 134,
+      "too_long": 351,
+      "n": 3000
+    },
+    "CRNN (beam w=10)": {
+      "exact": 2062,
+      "empty": 2,
+      "off_by_one": 542,
+      "too_short": 129,
+      "too_long": 353,
+      "n": 3000
+    },
+    "Apple Vision": {
+      "exact": 2429,
+      "empty": 294,
+      "off_by_one": 149,
+      "too_short": 119,
+      "too_long": 28,
+      "n": 3000
+    }
+  },
+  "digit_analysis": {
+    "CRNN (greedy)": {
+      "word_acc_letters": 0.7229357798165137,
+      "word_acc_with_digits": 0.31999999999999995,
+      "gap": 0.40293577981651374,
+      "n_digit_labels": 275
+    },
+    "CRNN (beam w=10)": {
+      "word_acc_letters": 0.7244036697247707,
+      "word_acc_with_digits": 0.31999999999999995,
+      "gap": 0.4044036697247707,
+      "n_digit_labels": 275
+    },
+    "Apple Vision": {
+      "word_acc_letters": 0.8168807339449542,
+      "word_acc_with_digits": 0.7381818181818182,
+      "gap": 0.07869891576313603,
+      "n_digit_labels": 275
+    }
+  },
+  "crnn_top_substitutions": {
+    "0 -> o": 47,
+    "4 -> a": 25,
+    "5 -> s": 11,
+    "1 -> i": 11,
+    "3 -> 8": 9,
+    "8 -> b": 9,
+    "a -> e": 9,
+    "c -> g": 9,
+    "i -> t": 9,
+    "i -> l": 9,
+    "6 -> g": 8,
+    "o -> d": 8,
+    "9 -> g": 8,
+    "3 -> b": 8,
+    "t -> l": 7
+  },
+  "caveat": "IIIT-5K images are pre-cropped single words. The CRNN assumes the crop is the word; Apple Vision and Tesseract include a text DETECTION stage that this benchmark does not exercise and that can fail on small crops. The comparison is on the CRNN's native task, not a general claim about the engines."
+}

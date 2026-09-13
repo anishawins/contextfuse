@@ -18,3 +18,4 @@ ocrmac
 pillow-heif
 fastapi
 uvicorn
+scipy

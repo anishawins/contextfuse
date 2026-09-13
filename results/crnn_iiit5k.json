@@ -1,0 +1,81 @@
+{
+  "tag": "crnn_mjsynth_to_iiit5k",
+  "timestamp_utc": "2026-09-13T13:14:06+00:00",
+  "config": {
+    "epochs": 6,
+    "batch_size": 64,
+    "lr": 0.001,
+    "lstm_hidden": 256,
+    "dropout": 0.1,
+    "workers": 2,
+    "max_train": null,
+    "smoke": false,
+    "seed": 0,
+    "resume": false
+  },
+  "device": "mps",
+  "params": 8331301,
+  "timesteps": 26,
+  "alphabet_size": 37,
+  "train_images": 162517,
+  "val_images": 19199,
+  "test_images": 3000,
+  "iiit_label_source": "testdata.mat (scipy)",
+  "untrained_val_cer": 0.9886110423372122,
+  "final_blank_fraction": 0.778,
+  "history": [
+    {
+      "epoch": 0,
+      "loss": 1.4889293489563227,
+      "val_cer": 0.1206169418002169,
+      "val_wer": 0.388671875,
+      "blank_fraction": 0.6651517427884616
+    },
+    {
+      "epoch": 1,
+      "loss": 0.3495961519272931,
+      "val_cer": 0.09254127003253404,
+      "val_wer": 0.3076171875,
+      "blank_fraction": 0.6651141826923077
+    },
+    {
+      "epoch": 2,
+      "loss": 0.25060382670553805,
+      "val_cer": 0.06783949873478733,
+      "val_wer": 0.240234375,
+      "blank_fraction": 0.6603816105769231
+    },
+    {
+      "epoch": 3,
+      "loss": 0.1880120608241082,
+      "val_cer": 0.055910350644655986,
+      "val_wer": 0.2041015625,
+      "blank_fraction": 0.6578650841346154
+    },
+    {
+      "epoch": 4,
+      "loss": 0.1365533698223276,
+      "val_cer": 0.05470538619110736,
+      "val_wer": 0.189453125,
+      "blank_fraction": 0.6531325120192307
+    },
+    {
+      "epoch": 5,
+      "loss": 0.10269392307373824,
+      "val_cer": 0.05000602482226774,
+      "val_wer": 0.173828125,
+      "blank_fraction": 0.6529822716346154
+    }
+  ],
+  "iiit5k": {
+    "greedy": {
+      "cer": 0.12607243434409587,
+      "wer": 0.314
+    },
+    "beam10": {
+      "cer": 0.12574497347566965,
+      "wer": 0.31266666666666665
+    }
+  },
+  "note": "trained on synthetic MJSynth, tested on real IIIT-5K photographs; the reported error includes that domain shift"
+}
